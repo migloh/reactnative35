@@ -1,0 +1,84 @@
+<html>
+	<head>
+		<title>Assignment 1</title>
+		<style>
+			body{
+				font-family: Arial, Helvetica, sans-serif;
+				text-align: center;
+			}
+			h2, h3, #inputid, #guessButton, #message, #endgame, #past{
+				margin-top: 20px;
+				margin-bottom: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>Number Guessing Game</h2>
+		<h3>Enter value between 1 and 10</h3>
+		<input type="number" id="inputid" />
+		<button id="guessButton">Guess</button>
+		<br />
+		<span id="message"></span>
+		<div id="endgame"></div>
+		<hr />
+		<div id="past">Guess history <br/></div>
+		<script>
+			let button = document.getElementById('guessButton');
+			var notifstyle = document.getElementById("message");
+			var pastguesses = Array();
+			var time = 5;
+			
+			function restart(){
+				document.getElementById("guessButton").disabled = true;
+				var Timer = setInterval(function(){
+				if(time <= 0){
+					clearInterval(Timer);
+					document.getElementById("endgame").innerHTML = "Reloading...";
+					location.reload();
+				} else {
+					document.getElementById("endgame").innerHTML = `Reload in ${time}`;
+				}
+				time -= 1;
+				}, 1000);
+			}
+
+			button.addEventListener('click',function(){
+				var plural = "guesses";
+				var userGuess = Number(document.getElementById('inputid').value);
+				var sysrand = Math.floor(Math.random()*11);
+				if(userGuess == ""){
+					alert("Please enter a valid number!");
+					return false;
+				}
+				
+				console.log(`Input: ${userGuess}`);
+				console.log(`Random: ${sysrand}`);
+
+				if(userGuess<0||userGuess>10)
+					document.getElementById("message").innerHTML = `The input number must be between 0 and 10`; 
+				else{
+					pastguesses.push(userGuess);
+					if(pastguesses.length > 8)
+						plural = "guess";
+					console.log(pastguesses);
+					document.getElementById("past").innerHTML += pastguesses[pastguesses.length-1] + `<br>`;
+					if(userGuess > sysrand){
+						notifstyle.style.background = "#ff0400";
+						document.getElementById("message").innerHTML = `Your guess was too high. You have ${10-pastguesses.length} ${plural} left`;
+					}
+					else if(userGuess < sysrand){
+						notifstyle.style.background = "#ff0400";
+						document.getElementById("message").innerHTML = `Your guess was too low. You have ${10-pastguesses.length} ${plural} left`;
+					}
+					else if(userGuess === sysrand){
+						notifstyle.style.background = "#90ee90";
+						document.getElementById("message").innerHTML = `Yay YOU ARE THE LORD OF THE GUESSES`;
+						restart();
+					}
+					if(pastguesses.length === 10)
+						restart();
+				}
+			});
+		</script>
+	</body>
+</html>
