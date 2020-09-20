@@ -8,7 +8,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />   
-          <ImageBackground source={require('./assets/horse.jpg')} style={styles.imgcover} imageStyle={{borderBottomLeftRadius: 25, borderBottomRightRadius: 25}}>
+          <ImageBackground source={require('./assets/tokyotower.jpg')} style={styles.imgcover} imageStyle={{borderBottomLeftRadius: 25, borderBottomRightRadius: 25}}>
           <View style={styles.upperBar}>
             <MaterialIcons style={{marginLeft: 20}} name="arrow-back" size={30} />
             <MaterialIcons style={{marginRight: 20}} name="filter-center-focus" size={30} />
@@ -17,29 +17,29 @@ export default function App() {
       <View style={styles.info}>
         <View style={styles.places}>
           <View style={styles.nameofplace}>
-            <Text style={styles.name}>Effiel Tower</Text>
-            <Text style={styles.locateat}><Entypo name="location-pin" size={20} color="gray" /> Paris, France</Text>
+            <Text style={styles.name}>Tokyo Tower</Text>
+            <Text style={styles.locateat}><Entypo name="location-pin" size={20} color="gray" /> Tokyo, Japan</Text>
           </View>
-          <View style={styles.dlicon}>
-            <Feather name='download-cloud' size={30} style={{}} color='white' />
-          </View>
+            <View style={styles.dlicon} onPress={() => {alert('Downloaded')}}>
+              <Feather name='download-cloud' size={30} color='white' onPress={() => {alert('Downloaded')}}/>
+            </View>
         </View>
         <View style={styles.descript}>
           <View>
-            <Text style={{marginHorizontal: 20, marginVertical: 20, fontSize: 15}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
+            <Text style={{marginHorizontal: 20, marginVertical: 20, fontSize: 15}}>Tokyo Tower is a communications and observation tower in the Shiba-koen district of Minato, Tokyo, Japan. At 332.9 meters (1,092 ft), it is the second-tallest structure in Japan.</Text>
           </View>
           <View style={styles.hash}>
             <View style={styles.hashtag}><Text style={styles.hashtext}>#photography</Text></View>
-            <View style={styles.hashtag}><Text style={styles.hashtext}>#sea</Text></View>
+            <View style={styles.hashtag}><Text style={styles.hashtext}>#city</Text></View>
           </View>
         </View>
         <View style={styles.actions}>
           <View style={styles.actionleft}>
-            <AntDesign name="heart" size={30} color="#9EA6D1" /> 
-            <MaterialIcons name="mode-comment" style={{marginLeft: 20}} size={30} color="#9EA6D1" />
+            <AntDesign name="heart" size={30} color="#9EA6D1" onPress={() => {alert('Liked')}}/> 
+            <MaterialIcons name="mode-comment" style={{marginLeft: 20}} size={30} color="#9EA6D1"/>
           </View>
           <View style={styles.actionright}>
-          <MaterialIcons name="bookmark" size={30} color="#9EA6D1" />
+          <MaterialIcons name="bookmark" size={30} color="#9EA6D1"  onPress={() => {alert('Bookmarked')}}/>
           </View>
         </View>
       </View>
@@ -96,7 +96,15 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 25,
     borderBottomRightRadius: 25,
     borderTopRightRadius: 25,
-    borderTopLeftRadius: 5
+    borderTopLeftRadius: 5,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.37,
+    shadowRadius: 7.49,
+    elevation: 12,
   },
   hash:{
     flexDirection:'row',

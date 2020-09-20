@@ -30,13 +30,13 @@ export default function App() {
         <View style={styles.overview}>
           <View style={styles.imageWrapper}>
             <Image
-              source={require('./assets/qbu.png')}
+              source={require('./assets/vip.jpg')}
               style={styles.avatarImage}
               resizeMode='cover'
             />
           </View>
           <View style={styles.namejob}>
-            <Text style={styles.namae}>倉石たんぽぽ</Text>
+            <Text style={styles.namae}>Pham Minh Long</Text>
             <Text style={styles.metier}>Student</Text>
             <View style={styles.followorib}>
               <TouchableOpacity onPress={() => {alert('Followed')}}>
@@ -63,7 +63,7 @@ export default function App() {
           </View>
           <View style={styles.stats}>
             <Text style={styles.numerique}>20</Text>
-            <Text style={styles.cate}>Followings</Text>
+            <Text style={styles.cate}>Following</Text>
           </View>
         </View>
       </View>
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    height: 40
+    height: 50
   },
   info:{
     flexDirection: "column"
