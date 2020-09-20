@@ -22,8 +22,8 @@ export default function App() {
       <StatusBar style="auto" />
 
       <View style={styles.upperBar}>
-        <MaterialIcons style={{marginLeft: 12}} name="arrow-back" size={27} />
-        <MaterialIcons style={{marginRight: 12}} name="filter-center-focus" size={27} />
+        <MaterialIcons style={{marginLeft: 20}} name="arrow-back" size={27} />
+        <MaterialIcons style={{marginRight: 20}} name="filter-center-focus" size={27} />
       </View>
       
       <View style={styles.info}>
@@ -161,7 +161,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.37,
     shadowRadius: 7.49,
-    
     elevation: 12,
   },
   fltext:{
